@@ -55,6 +55,7 @@ export class RegisterComponent implements OnInit {
       this.cdr.detectChanges();
     }
     else if (lastSegment == "edit") {
+      this.title = "Modify New User Configuration"
       this.editMode = true;
       this.userid=segments[segments.length - 1];
       this.getbyId();

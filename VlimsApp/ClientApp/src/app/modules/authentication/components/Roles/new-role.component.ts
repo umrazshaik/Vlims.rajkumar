@@ -55,7 +55,7 @@ export class AddRoleComponent implements OnInit {
     }
     else if (lastSegment == "edit") {
       this.editMode = true;
-      this.title = "Edit Role Configuration"
+      this.title = "Modify Role Configuration"
       this.roleid=parseInt(segments[segments.length-1],10);
     }
     this.getdepartments();

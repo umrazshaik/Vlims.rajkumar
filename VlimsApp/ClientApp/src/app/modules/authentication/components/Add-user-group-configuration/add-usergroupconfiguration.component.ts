@@ -48,7 +48,7 @@ export class AddusergroupconfigurationComponent implements OnInit {
       this.cdr.detectChanges();
     }
     else if (lastSegment == "edit") {
-      this.title = "Edit User Group Configuration"
+      this.title = "Modify User Group Configuration"
       this.editMode = true;
       let id=parseInt(segments[segments.length - 1],10);
       this.getbyId(id);
