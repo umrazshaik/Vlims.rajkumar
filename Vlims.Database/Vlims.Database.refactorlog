@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="bbd49444-35e2-4416-8b84-4cf4e7082c08" ChangeDateTime="07/19/2023 13:32:04">
+    <Property Name="ElementName" Value="[dbo].[WORK_ASSAIGNED_TO_ME].[Assa]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[WORK_ASSAIGNED_TO_ME]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Assigned" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="7837b8b1-2fd1-4a1a-b1a9-5e86ade2fb66" ChangeDateTime="07/19/2023 13:32:26">
+    <Property Name="ElementName" Value="[dbo].[WORK_ASSAIGNED_TO_ME].[Initi]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[WORK_ASSAIGNED_TO_ME]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Initiated_By" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="924ceb0b-80f7-4002-8af8-e4c60783f882" ChangeDateTime="07/19/2023 13:33:01">
+    <Property Name="ElementName" Value="[dbo].[WORK_ASSAIGNED_TO_ME].[Due]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[WORK_ASSAIGNED_TO_ME]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Due_Date" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="2dce5b89-6bfa-4272-a00d-f4db6ac7d02f" ChangeDateTime="07/24/2023 12:14:12">
+    <Property Name="ElementName" Value="[dbo].[DocumentEffective_PSY].[DOCStatus_PSY]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[DocumentEffective_PSY]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Status_PSY" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="d98e3c2a-5213-4985-a660-babedde99ce3" ChangeDateTime="07/29/2023 14:28:24">
+    <Property Name="ElementName" Value="[dbo].[workflowconiguration_PSY].[code]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[workflowconiguration_PSY]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="code_PSY" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="0b151791-0eac-4f65-9f8a-83afb4938c90" ChangeDateTime="07/31/2023 06:44:12">
+    <Property Name="ElementName" Value="[dbo].[AdditionalTask_PSY].[Documentmanagerid_PSY]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[AdditionalTask_PSY]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="DocumentEffective_ID" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="29d91685-d2c0-4d18-a13c-e916a57a5809" ChangeDateTime="08/04/2023 10:59:29">
+    <Property Name="ElementName" Value="[dbo].[WorkflowReviewMapping].[Type]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[WorkflowReviewMapping]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Type_PSY" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="45c60509-fd0e-442d-8eb2-0c337a6bfe9a" ChangeDateTime="08/04/2023 10:59:33">
+    <Property Name="ElementName" Value="[dbo].[WorkflowReviewMapping].[TypeId]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[WorkflowReviewMapping]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="TypeId_PSY" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="2780d8bd-cf85-445b-a8aa-abdef0748da0" ChangeDateTime="08/04/2023 10:59:39">
+    <Property Name="ElementName" Value="[dbo].[WorkflowReviewMapping].[User]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[WorkflowReviewMapping]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="User_PSY" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="4c46425d-8c4c-4bdc-a699-026668f2d34e" ChangeDateTime="08/04/2023 17:14:07">
+    <Property Name="ElementName" Value="[dbo].[WorkflowReviewMapping].[WorkflowId]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[WorkflowReviewMapping]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="WorkFlowId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="72aece2f-7f43-4dfd-9a84-e95cccf07092" ChangeDateTime="08/04/2023 17:41:29">
+    <Property Name="ElementName" Value="[dbo].[workitems_PSY].[Action_PSY]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[workitems_PSY]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ActionType_PSY" />
+  </Operation>
+</Operations>

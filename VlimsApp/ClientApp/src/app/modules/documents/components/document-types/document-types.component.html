@@ -1,0 +1,52 @@
+
+<div class="container-fluid">
+    <div class="row p-2">
+        <div class="col">
+           
+            <div class="d-flex justify-content-between align-items-center">
+                <h4 class="page-title flex-grow-1">Document Type Configuration</h4>
+                <div class="d-flex page-title-actions">
+                  <input type="text" class="form-control" pInputText type="text" (input)="templatesTable.filterGlobal($any($event.target)?.value, 'contains')"  placeholder="Search">
+                  <button class="btn btn-primary mx-2" type="button" (click)="navigateToAddDocumentType()">New</button>
+                </div>
+              </div>
+        </div>
+    </div>
+    <div class="row p-2">
+        <div class="col">
+            <div class="p-4 bg-white shadow-dark rounded-2">
+            <p-table #templatesTable [value]="types" 
+            [globalFilterFields]="['Documenttypename', 'documenttypeprefix', 'Description','ModifiedBy','Status']"
+            tableStyleClass="table table-striped" [rows]="itemsPerPage"
+            [paginator]="true" [totalRecords]="types.length"
+            [rowsPerPageOptions]="rowsPerPageOptions" [(first)]="currentPage">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>S.No</th>
+                        <th pSortableColumn="Documenttypename" style="width:20%">Document type<p-sortIcon field="Documenttypename"></p-sortIcon></th>
+                        <th pSortableColumn="documenttypeprefix" style="width:10%">Prefix <p-sortIcon field="documenttypeprefix"></p-sortIcon></th>
+                        <th pSortableColumn="Description" style="width:15%">Description<p-sortIcon field="Description"></p-sortIcon></th>
+                        <th pSortableColumn="ModifiedBy" style="width:20%">Registered by<p-sortIcon field="ModifiedBy"></p-sortIcon></th>
+                        <th pSortableColumn="ModifiedDate" style="width:200px">Registered On <p-sortIcon field="ModifiedDate"></p-sortIcon></th>
+                        <th pSortableColumn="Status" style="width:200px">Status <p-sortIcon field="Status"></p-sortIcon></th>
+                        <th style="width:80px">Actions</th>
+
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-doc let-i="rowIndex">
+                    <tr>  
+                        <td>{{ i + 1 }}</td>  
+                        <td>{{doc?.Documenttypename}}</td>
+            <td>{{doc?.documenttypeprefix}}</td>
+            <td>{{doc?.Description}}</td>
+            <td>{{doc?.ModifiedBy}}</td>
+            <td>{{doc?.ModifiedDate | date}}</td>
+                        <td><span class="status" [ngClass]="getStatusClass(doc['Status'])">{{doc.Status}} </span></td>
+                        <td class="text-center"><i *ngIf="doc?.Status!='Approved'" (click)="editdoc(doc)" class="bi bi-pencil"></i></td>
+                    </tr>
+             </ng-template>
+           </p-table>
+        </div>
+      </div>
+    </div>
+</div>  

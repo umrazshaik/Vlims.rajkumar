@@ -1,0 +1,107 @@
+<div class="card shadow mb-4" style="padding-top: 2px;">
+  <div class="card-header py-3">
+    <div col-12 style="float: left;">
+      <h6 class="m-0 font-weight-bold text-primary">Document Effective</h6>
+    </div>
+
+  </div>
+  <div class="card-body">
+    <form (ngSubmit)="submit(adddocreq)" #fm="ngForm">
+      <div class="modal-body">
+        <div class="form-group row">
+
+          <label class="col-sm-4 col-form-label">Document Title :</label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control" id="documenttitle" [(ngModel)]="adddocreq.documenttitle"
+                   pattern='[A-Za-z\\s]*' name="documenttitle" aria-describedby="productname" placeholder="documenttitle"
+                   #BrandName="ngModel" [ngClass]="{ 'is-invalid': fm.submitted && BrandName.invalid }" required />
+          </div>
+        </div>
+
+        <div class="form-group row">
+
+          <label class="col-sm-4 col-form-label">Document No :</label>
+
+          <div class="col-sm-8">
+
+            <input type="text" class="form-control" id="DocumentNo" [(ngModel)]="adddocreq.documentno"
+                   pattern='[A-Za-z\\s]*' name="documentno" aria-describedby="productname" placeholder="documentno"
+                   #BrandName="ngModel" [ngClass]="{ 'is-invalid': fm.submitted && BrandName.invalid }" required />
+
+          </div>
+
+        </div>
+
+        <div class="form-group row">
+
+          <label for="BrandName" class="col-sm-4 col-form-label">Document Type :</label>
+
+          <div class="col-sm-8">
+            <select class="form-control" [(ngModel)]="adddocreq.documenttype" name="documenttype" #typeId="ngModel"
+                    [ngClass]="{ 'is-invalid': fm.submitted && typeId.invalid }" required>
+
+              <option [ngValue]=null>Select</option>
+              <option *ngFor="let doctype of doctypes" value={{doctype.Documenttypename}}>{{doctype?.Documenttypename}}</option>
+            </select>
+            <!--<input type="text" class="form-control" id="DocType" [(ngModel)]="adddocreq.documenttype"
+  pattern='[A-Za-z\\s]*' name="DocType" aria-describedby="productname" placeholder="Document Type"
+  #BrandName="ngModel" [ngClass]="{ 'is-invalid': fm.submitted && BrandName.invalid }" required />-->
+          </div>
+        </div>
+        <div class="form-group row">
+
+          <label for="BrandName" class="col-sm-4 col-form-label">Department :</label>
+
+          <div class="col-sm-8">
+
+            <select class="form-control" [(ngModel)]="adddocreq.department" name="Assigntodepartment" id="Assigntodepartment" [disabled]="viewMode" (ngModelChange)="inputValue = $event"
+                    [ngClass]="{ 'is-invalid': fm.submitted && Assigntodepartment.invalid }" required>
+              <option value="Select">Select</option>
+              <option *ngFor="let type of departs" value={{type.DepartmentName}}>{{type?.DepartmentName}}</option>
+            </select>
+            <!--<input type="text" class="form-control" id="Department" [(ngModel)]="adddocreq.Department"
+         pattern='[A-Za-z\\s]*' name="Department" aria-describedby="productname" placeholder="Department"
+         #BrandName="ngModel" [ngClass]="{ 'is-invalid': fm.submitted && BrandName.invalid }" required />-->
+          </div>
+        </div>
+        <div class="form-group row">
+
+          <label for="BrandName" class="col-sm-4 col-form-label">Document :</label>
+
+          <div class="col-sm-8">
+            <input type="url"
+                   name="Document" aria-describedby="Document" placeholder="Document" [(ngModel)]="adddocreq.document"
+                   #BrandName="ngModel" />
+          </div>
+        </div>
+        <div class="form-group row">
+
+          <label for="BrandName" class="col-sm-4 col-form-label">Effective Date :</label>
+          <div class="col-sm-8">
+            <input type="date" class="form-control" id="Document" [(ngModel)]="adddocreq.effectiveDate"
+                   name="Effective" aria-describedby="Effective" placeholder="Effective"
+                   #BrandName="ngModel" />
+          </div>
+        </div>
+        <div class="form-group row">
+
+          <label for="BrandName" class="col-sm-4 col-form-label">Review Date :</label>
+          <div class="col-sm-8">
+            <input type="date" class="form-control" id="Review" [(ngModel)]="adddocreq.reviewDate"
+                   name="Review" aria-describedby="Review" placeholder="Review"
+                   #BrandName="ngModel" />
+          </div>
+
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success" (click)="ManageApprovalFlow(adddocreq);" *ngIf="viewMode">Approve</button>
+          <button type="button" class="btn btn-info" (click)="closepopup();" *ngIf="viewMode">Re-Initiate</button>
+          <button type="button" class="btn btn-danger" (click)="closepopup();" *ngIf="viewMode">Reject</button>
+          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="button" class="btn btn-secondary" (click)="closepopup();">Close</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

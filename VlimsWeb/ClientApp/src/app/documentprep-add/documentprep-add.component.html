@@ -1,0 +1,133 @@
+<!-- parent.component.html -->
+
+
+<div class="card shadow mb-4" style="padding-top: 2px;">
+  <div class="card-header py-3">
+    <div col-12 style="float: left;">
+      <h6 class="m-0 font-weight-bold text-primary">New Document Preperation</h6>
+    </div>
+
+  </div>
+  <div class="card-body">
+    <form (ngSubmit)="submit(adddocreq)" #fm="ngForm">
+      <div class="modal-body">
+        <div class="form-group row">
+
+          <label class="col-sm-4 col-form-label">Document Title :</label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control" id="DocumentName" [(ngModel)]="adddocreq.documenttitle"
+                   pattern='[A-Za-z\\s]*' name="DocumentName" aria-describedby="productname" placeholder="documenttitle"
+                   #BrandName="ngModel" [ngClass]="{ 'is-invalid': fm.submitted && BrandName.invalid }" required />
+
+          </div>
+        </div>
+
+        <div class="form-group row">
+
+          <label class="col-sm-4 col-form-label">Document No :</label>
+
+          <div class="col-sm-8">
+
+            <input type="text" class="form-control" id="DocumentNo" [(ngModel)]="adddocreq.documentno"
+                   pattern='[A-Za-z\\s]*' name="DocumentNo" aria-describedby="productname" placeholder="DocumentNo"
+                   #BrandName="ngModel" [ngClass]="{ 'is-invalid': fm.submitted && BrandName.invalid }" required />
+
+          </div>
+
+        </div>
+
+        <div class="form-group row">
+
+          <label class="col-sm-4 col-form-label">Document Type :</label>
+
+          <div class="col-sm-8">
+            <select class="form-control" [(ngModel)]="adddocreq.documenttype" disabled="true" name="documenttype" #typeId="ngModel"
+                    [ngClass]="{ 'is-invalid': fm.submitted && typeId.invalid }" required>
+
+              <option [ngValue]=null>Select</option>
+              <option *ngFor="let doctype of doctypes" value={{doctype.Documenttypename}}>{{doctype?.Documenttypename}}</option>
+            </select>
+
+          </div>
+        </div>
+        <div class="form-group row">
+
+          <label class="col-sm-4 col-form-label">Department :</label>
+
+          <div class="col-sm-8">
+
+            <select class="form-control" [(ngModel)]="adddocreq.department" disabled="true" name="Assigntodepartment" id="Assigntodepartment" [disabled]="viewMode" (ngModelChange)="inputValue = $event"
+                    [ngClass]="{ 'is-invalid': fm.submitted && Assigntodepartment.invalid }" required>
+              <option value="Select">Select</option>
+              <option *ngFor="let type of departs" value={{type.DepartmentName}}>{{type?.DepartmentName}}</option>
+            </select>
+
+
+
+          </div>
+        </div>
+        <div class="form-group row">
+
+          <label class="col-sm-4 col-form-label">Document :</label>
+
+          <div class="col-sm-4">
+            <input type="file" class="form-control" id="fileInput" [(ngModel)]="adddocreq.document"
+                   name="Document" aria-describedby="productname" placeholder="Document"
+                   #BrandName="ngModel" (change)="onFileSelected($event)" [disabled]="isUploaded" />
+          </div>
+          <div class="col-sm-2">
+            <button type="button" class="btn btn-secondary" (click)="onUpload()" [disabled]="isUploaded">Upload</button>
+          </div>
+          <div class="col-sm-2">
+            <button type="button" class="btn btn-danger" *ngIf="selectedFile" (click)="onDeleteFile()">Delete</button>
+          </div>
+        </div>
+        <div class="form-group row">
+
+          <label class="col-sm-4 col-form-label">Template :</label>
+
+          <div class="col-sm-8">
+            <select class="form-control" [(ngModel)]="adddocreq.template" name="typeId" #typeId="ngModel"
+                    [ngClass]="{ 'is-invalid': fm.submitted && typeId.invalid }" required>
+              <option value="">Select</option>
+              <option *ngFor="let type of templates" value={{type.Templatename}}>{{type.Templatename}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group row">
+
+          <label class="col-sm-4 col-form-label">Workflow :</label>
+          <div class="col-sm-8">
+            <select class="form-control" [(ngModel)]="adddocreq.wokflow" id="Workflow" name="Workflow" #typeId="ngModel"
+                    [ngClass]="{ 'is-invalid': fm.submitted && typeId.invalid }" required>
+              <option [ngValue]="">Select</option>
+              <option *ngFor="let type of workflowTypes" value={{type.documentstage}}>{{type.documentstage}}</option>
+            </select>
+            <label></label>
+          </div>
+        </div>
+        <div class="form-group row">
+
+          <label class="col-sm-4 col-form-label">Details :</label>
+
+          <div class="col-sm-8">
+            <textarea name="Details" cols="40" placeholder="Details" rows="5" #BrandName="ngModel" style="width:615px; height:90px;"
+                      aria-describedby="Details" [(ngModel)]="adddocreq.Details"></textarea>
+
+            <!--<input type="text" class="form-control" id="Details" [(ngModel)]="adddocreq.details"
+                   pattern='[A-Za-z\\s]*' name="Details" aria-describedby="productname" placeholder="Details"
+                   #BrandName="ngModel" [ngClass]="{ 'is-invalid': fm.submitted && BrandName.invalid }" required />-->
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" (click)="ManageApprovalFlow(adddocreq);" *ngIf="viewMode">Approve</button>
+        <button type="button" class="btn btn-info" (click)="closepopup();" *ngIf="viewMode">Re-Initiate</button>
+        <button type="button" class="btn btn-danger" (click)="closepopup();" *ngIf="viewMode">Reject</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="button" class="btn btn-secondary" (click)="closepopup();">Close</button>
+        <button type="button" class="btn btn-secondary" (click)="previewtemplate(adddocreq);">Preview</button>
+      </div>
+    </form>
+  </div>
+</div>
