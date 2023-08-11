@@ -32,7 +32,7 @@ export class AddDepartmentComponent implements OnInit {
     const segments = urlPath.split('/');
     const lastSegment = segments[segments.length - 2];
      if (lastSegment == "edit") {
-      this.title = "Edit Department Configuration"
+      this.title = "Modify Department Configuration"
       this.editMode = true;
       let id=parseInt(segments[segments.length - 1],10);
       this.getbyId(id);
